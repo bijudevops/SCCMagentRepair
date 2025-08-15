@@ -120,7 +120,7 @@ function Invoke-CCMRepair {
 }
 
 # Function to check CCMRepair logs
-function Check-CCMRepairLogs {
+function Test-CCMRepairLogs {
     try {
         $LogPath = "C:\Windows\CCM\Logs\ccmrepair.log"
         
@@ -324,7 +324,7 @@ function Clear-CCMCache {
 }
 
 # Function to validate the repair process
-function Validate-SCCMRepair {
+function Test-SCCMRepairValidation {
     try {
         Write-Log "Starting validation of SCCM repair process..." "INFO"
         
@@ -593,7 +593,7 @@ function Start-SCCMRepair {
         if (Invoke-CCMRepair) {
             Show-Progress -Activity "Step 1: Log Verification" -Status "Checking CCMRepair logs" -PercentComplete 30
             
-            if (Check-CCMRepairLogs) {
+            if (Test-CCMRepairLogs) {
                 Write-Log "Step 1 completed successfully" "INFO"
             } else {
                 Write-Log "Step 1 completed with warnings" "WARN"
@@ -642,7 +642,7 @@ function Start-SCCMRepair {
         # Final validation
         Show-Progress -Activity "Final Validation" -Status "Validating repair process" -PercentComplete 90
         
-        if (Validate-SCCMRepair) {
+        if (Test-SCCMRepairValidation) {
             Write-Log "=== SCCM Repair Process Completed Successfully ===" "INFO"
             
             # Additional connectivity and health check
