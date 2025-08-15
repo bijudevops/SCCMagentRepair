@@ -38,7 +38,6 @@ Write-Host "OS: $(Get-WmiObject -Class Win32_OperatingSystem | Select-Object -Ex
 Write-Host "=================================" -ForegroundColor Green
 
 # Script variables
-$ScriptName = "SCCM-Repair"
 $Timestamp = Get-Date -Format "yyyyMMdd-HHmmss"
 $LogFile = Join-Path $LogPath "sccm-repair.$Timestamp.log"
 $ErrorActionPreference = "Continue"
