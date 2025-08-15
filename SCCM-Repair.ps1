@@ -19,7 +19,7 @@
     
 .NOTES
     Version: 1.0
-    Author: Biju George - Technical Consultant (SPARK)
+    Author: Biju George - Technical Consultant
     Requires: Administrative privileges
 #>
 
